@@ -14,7 +14,7 @@
 let longitudeDetails;
 let latitudeDetails;
 const ukPostCode = "SW128HA";
-const magickeys = "AIzaSyC-1BrpS2UjoZhN0v_mKr4LAaYp89K0YCM";
+const magickeys = "xxxxx";
 const geo_URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${ukPostCode}&key=${magickeys}`;
 
 const getGeoLoc = async () => {
