@@ -60,7 +60,7 @@ button.addEventListener(`click`, (e) => {
 
   if (typeof ukPostCode !== "string" || typeof ukPostCode === "number" || !ukPostCode ){
     userPostcode.textContent = `Not a valid postocde`
-    userPostcode.style.border = `2px, dashed, red`
+    userPostcode.style.border = `2px, solid, red`
   }
 
   fetchLocation(ukPostCode)
@@ -116,6 +116,8 @@ const fetchSolarInfo = (lat, lon) => {
 
 
     // Solar panel count returns an array with different panel counts.  I will be going off the 1st index only to make it simple.
+
+    // Next steps: Error handle solar fetches and catch method on postcode fetch and test these errors
 }
 
 
@@ -143,8 +145,3 @@ const fetchSolarInfo = (lat, lon) => {
 //     console.log(`Error: ${error}`);
 //   }
 // };
-
-// getGeoLoc();
-
-
-
