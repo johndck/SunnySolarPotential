@@ -44,11 +44,24 @@ const createElements = (element, text, color,) => {
   document.body.append(newElement)
 }
 
+
 // user input field for postcode
 
   let userPostcode = document.querySelector(`.user-postcode`)
 
 
+  //function involving postcode errors
+  const postcodeError = () => {
+    userPostcode.value = "Not A Valid Postcode";
+    userPostcode.style.backgroundColor = "#ffcccc";
+  }
+
+// function to reset styles
+const resetStyles = () => {
+  userPostcode.value = '';
+  userPostcode.style.border = '1px solid black';
+  userPostcode.style.backgroundColor = 'initial'; 
+};
 // Event 
 
 const button = document.querySelector(`.submit-btn`)
@@ -58,12 +71,19 @@ button.addEventListener(`click`, (e) => {
 
   ukPostCode = e.target.previousElementSibling.value
 
-  if (typeof ukPostCode !== "string" || typeof ukPostCode === "number" || !ukPostCode ){
-    userPostcode.textContent = `Not a valid postocde`
-    userPostcode.style.border = `2px, solid, red`
+  const specialCharacters= /[!@#$%^&*()/,.?":{}|<>]/;
+
+  if (typeof ukPostCode !== "string" || !isNaN(ukPostCode) || ukPostCode === "" || specialCharacters.test(ukPostCode)) {
+    postcodeError()
+  } else {
+    // Reset styles for valid postcode
+    resetStyles();
+
+    // Fetch location and solar info
+    fetchLocation(ukPostCode);
   }
 
-  fetchLocation(ukPostCode)
+ 
 
 
 })
@@ -73,10 +93,19 @@ button.addEventListener(`click`, (e) => {
 const fetchLocation = (ukPostCode) => {
   fetch(`https:maps.googleapis.com/maps/api/geocode/json?address=${ukPostCode}&key=AIzaSyBSz3w7EQnyHPXu2qDA4hz71uCVntYBug8`)
     .then(response => {
+
     // Error handling
-    // if (){}
+    
+
       return response.json()})
     .then(data => {
+
+      if (data.status === "ZERO_RESULTS" || data.status === "INVALID_REQUEST"){
+            postcodeError()
+        } else {
+          resetStyles();
+        }
+      
       console.log(data);
       const latitudeDetails = data.results[0].geometry.location.lat;
       const longitudeDetails = data.results[0].geometry.location.lng;
@@ -90,7 +119,7 @@ const fetchLocation = (ukPostCode) => {
 
       //Returns an array containing multiple variables so that we can use in another fucntion.
     })
-    .catch()
+    .catch(error => error) // Without this line of code the lat and lon variables will return uncaught errors and stop the rest of the code. 
 
 }
 
@@ -115,9 +144,9 @@ const fetchSolarInfo = (lat, lon) => {
 
 
 
-    // Solar panel count returns an array with different panel counts.  I will be going off the 1st index only to make it simple.
 
-    // Next steps: Error handle solar fetches and catch method on postcode fetch and test these errors
+
+    // Next steps: Error handle solar fetches 
 }
 
 
@@ -145,3 +174,7 @@ const fetchSolarInfo = (lat, lon) => {
 //     console.log(`Error: ${error}`);
 //   }
 // };
+
+
+
+
