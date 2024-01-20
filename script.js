@@ -49,6 +49,8 @@ const createElements = (element, text, color,) => {
 
   let userPostcode = document.querySelector(`.user-postcode`)
 
+ 
+   
 
   //function involving postcode errors
   const postcodeError = () => {
@@ -127,7 +129,18 @@ const fetchLocation = (ukPostCode) => {
 const fetchSolarInfo = (lat, lon) => {
   fetch(`https://solar.googleapis.com/v1/buildingInsights:findClosest?location.latitude=${lat}&location.longitude=${lon}&requiredQuality=MEDIUM&key=AIzaSyBSz3w7EQnyHPXu2qDA4hz71uCVntYBug8`)
     .then(response => response.json())
-    .then(data => {console.log(data)
+    .then(data => { 
+      try {
+      if (data.error.status === "NOT_FOUND") {
+        openModal()
+      } else {
+        resetStyles()
+      }
+    }
+    catch(error){console.log(`loading Successful`);}
+      
+      
+      console.log(data)
 
       let maxSunshineHoursPerYear = data.solarPotential.maxSunshineHoursPerYear
 
@@ -143,10 +156,26 @@ const fetchSolarInfo = (lat, lon) => {
 
 
 
+// This is a test modal, I just added it to see how we can alert the user of the situation without using a basic alert window.
+
+// Function to open the modal with a specific message
+function openModal() {
+  document.getElementById('errorMessage').innerText = "We're sorry, but our product doesn't currently cover your living area. We're in beta testing and plan to expand our coverage in the future.";
+  document.getElementById('errorModal').style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById('errorModal').style.display = 'none';
+}
+
+const modalCloseBtn = document.querySelector(`.close`);
+
+modalCloseBtn.addEventListener(`click`, () => {
+  closeModal()
+})
 
 
-
-    // Next steps: Error handle solar fetches 
 }
 
 
