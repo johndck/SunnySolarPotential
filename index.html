@@ -1,28 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Potential Map</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Energy Website</title>
+    <!-- Include Bootstrap CSS link -->
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Link your custom CSS file -->
+    <link rel="stylesheet" href="css/bootstrap-override.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- You can include additional stylesheets or scripts here -->
+  </head>
+  <body>
+    <header class="row align-items-center bg-warning">
+      <div class="col-4"></div>
+      <h1 class="text-center col-4">SUNNY</h1>
+      <!-- Desktop navbar -->
+      <nav class="navbar desktop col-4 d-flex justify-content-center gap-5">
+        <div class="nav-item">
+          <a href="/guide">Guide</a>
+        </div>
+        <div class="nav-item">
+          <a href="/info">Info</a>
+        </div>
+        <div class="nav-item">
+          <a href="/search">Search</a>
+        </div>
+      </nav>
+      <!-- Mobile navbar -->
+      <nav class="mobile">
+        <div>🍔</div>
+      </nav>
+    </header>
+    <!-- https://picsum.photos/seed/abcd/width/height RANDOM IMAGE GET NEW ONE FROM CLAIRE-->
+    <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->
+    <div class="hero-section">
+      <div class="overlay"></div>
+      <div class="container">
+        <h1 class="display-4">SOLAR PANEL</h1>
+        <h1 class="lead">SUITABILITY CHECK</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your postcode"
+                aria-label="Enter your postcode"
+                aria-describedby="button-addon"
+              />
 
-<form id="userForm">
-  <input type="text" class="user-postcode">
-  <button type="submit" class="submit-btn"></button>
-</form>
+              <button
+                class="btn btn-warning cta-button"
+                type="button"
+                id="button-addon"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of hero section -->
 
-<!-- Test modal for pushing unable to retrieve solar info for particular postcode-->
-<div class="modal" id="errorModal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p id="errorMessage"></p>
-  </div>
-</div>
+    <section id="about">
+      <h2>How Sunny works</h2>
+      <div>
+        <img src="" alt="" />
+        <h3>1</h3>
+        <p>Search for your home Enter your UK postcode into the search box</p>
+      </div>
+      <div>
+        <img src="" alt="" />
+        <h4>2</h4>
+        <p>Data Check We will search for real-time solar panel energy data</p>
+      </div>
+    </section>
 
-
-</body>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
