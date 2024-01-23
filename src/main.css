@@ -10766,9 +10766,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-:root {
+/* :root {
   --bs-body-font-family: font-family: "Poppins", sans-serif;
-}
+} */
 
 #nav {
   background-color: rgb(255, 204, 0);
