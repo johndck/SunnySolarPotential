@@ -29,7 +29,7 @@ const searchHistory = () => {
     // create the recent searches buttons
     // create the recent searches div to hold recent search buttons
 
-    // styled header and recent-searches element
+    // enlarged logo and styled search-history buttons
 
     let recentSearchEl = document.createElement("div");
     recentSearchEl.classList.add(
@@ -56,6 +56,7 @@ const searchHistory = () => {
       let historyButtonEL = document.createElement("button");
       historyButtonEL.textContent = checkHistory[i].postcode;
       historyButtonEL.setAttribute("data-custom", checkHistory[i].postcode);
+      historyButtonEL.classList.add("rounded", "btn", "bg-white", "mx-1")
       buttonHolderEL.append(historyButtonEL);
     }
 
