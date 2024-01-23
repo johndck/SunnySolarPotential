@@ -79,6 +79,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Center the logo */
+#logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
