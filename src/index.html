@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link to the stylesheet-->
+    <link rel="stylesheet" href="main.css" />
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <title>Test set up with Bootstrap Local to Remote</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar mt-5 fixed-top navbar-expand-lg navbar-light">
+        <!-- Navbar container-->
+
+        <div class="container" id="nav">
+          <a class="navbar-brand me-5" href="#">Sunny</a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav align-items-end">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div
+        class="container-fluid"
+        style="
+          background-image: url('/src/assets/solarRoof2.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <div class="container hero">
+          <div class="row">
+
+            <!-- Modal for postcode not found-->
+            <div class="modal" tabindex="-1" id="postcodefail">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Searching for your postcode</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>We're sorry, we could not find your postcode.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of modal-->
+
+            <div
+              class="col d-flex flex-column justify-content-center align-items-center postcode-search" id="hero-content"
+            >
+              <div class="tagline text-white text-center" id="tagline">
+                <h1><strong>Confused about Solar power?</strong></h1>
+                <h3>See the potential of solar for your home</h3>
+              </div>
+
+              
+
+              <form class="postcode-form d-flex flex-column align-items-center">
+                <div class="mb-3 ">
+                  <input
+                    type="text"
+                    maxlength="8"
+                    minlength="5"
+                    class="postcodeCaptureForm postcode-input"
+                    placeholder="Your postcode"
+                    aria-label="Building postcode"
+                    aria-describedby="basic-addon2"
+                  />
+                
+                </div>
+
+                <button type="submit" class="brandbtn" id="checkPostcode">Submit</button>
+              </form>
+              
+            </div>
+
+            <!--
+              <div class="border d-flex justify-content-center previousSearches">
+              <div class="d-flex flex-column border results-form">
+                <p>Recent searches</p>
+                <p>Holding</p>
+              </div>
+              
+            </div>
+            -->
+           
+
+
+          </div>
+        </div>
+      </div>
+
+      </section>
+      
+
+
+
+
+      <!-- how Sunny works section -->
+      <!-- margin top from hero section = ??? -->
+      <section class="howSunnyWorks">
+        <div class="container">
+          <div class="row">
+            <div class="col mt-3">
+              <div class="title d-flex justify-content-center mb-2">
+                <h2>How Sunny works</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+
+            <!-- row 1-->
+            <div class="col p-5">
+              <!-- holding row for layout-->
+              <div class="row">
+                <!-- lefthand side icon-->
+                <!-- on smaller screens cols will stack-->
+                <!-- row 1-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center"
+                >
+                  <div
+                    class="supporting-text d-flex justify-content-center justify-content-md-end"
+                  >
+                    <img
+                      class="renewables"
+                      alt="solar-panel-icon"
+                      src="/src/enapter-solar-panel.svg"
+                    />
+                  </div>
+                  <!-- end of lefthand side supporting text-->
+                </div>
+                <!-- End of lefthand side icon-->
+                <!-- right hand side supporting text-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center justify-content-md-start"
+                >
+                  <div
+                    class="supporting-text d-flex flex-column align-items-center align-items-md-start"
+                  >
+                    <h3>1</h3>
+                    <p class="">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <p class="text-center text-md-start">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Autem sunt placeat, illo iusto deserunt reprehenderit
+                      minus aut recusandae asperiores expedita, nemo suscipit
+                      vel, consequuntur quos itaque tenetur laudantium voluptas
+                      nesciunt.
+                    </p>
+                  </div>
+                  <!-- end of righthand side supporting text-->
+                </div>
+                <!-- end of row 1 holding content-->
+              </div>
+
+              <!-- row 2-->
+              <div class="row">
+                <!-- lefthand side icon-->
+                <!-- on smaller screens cols will stack-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center"
+                >
+                  <div
+                    class="supporting-text d-flex justify-content-center justify-content-md-end"
+                  >
+                    <img
+                      class="renewables"
+                      alt="solar-panel-icon"
+                      src="/src/house.svg"
+                    />
+                  </div>
+                  <!-- end of lefthand side supporting text-->
+                </div>
+                <!-- End of lefthand side icon-->
+                <!-- right hand side supporting text-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center justify-content-md-start"
+                >
+                  <div
+                    class="supporting-text d-flex flex-column align-items-center align-items-md-start"
+                  >
+                    <h3>2</h3>
+                    <p class="">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <p class="text-center text-md-start">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Autem sunt placeat, illo iusto deserunt reprehenderit
+                      minus aut recusandae asperiores expedita, nemo suscipit
+                      vel, consequuntur quos itaque tenetur laudantium voluptas
+                      nesciunt.
+                    </p>
+                  </div>
+                  <!-- end of righthand side supporting text-->
+                </div>
+                <!-- end of row 2 holding content-->
+              </div>
+              <!-- end row 2-->
+
+              <!-- row 3-->
+              <div class="row">
+                <!-- lefthand side icon-->
+                <!-- on smaller screens cols will stack-->
+                <!-- row 1-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center"
+                >
+                  <div
+                    class="supporting-text d-flex justify-content-center justify-content-md-end"
+                  >
+                    <img
+                      class="renewables"
+                      alt="solar-panel-icon"
+                      src="/src/enapter-battery-storage.svg"
+                    />
+                  </div>
+                  <!-- end of lefthand side supporting text-->
+                </div>
+                <!-- End of lefthand side icon-->
+                <!-- right hand side supporting text-->
+                <div
+                  class="col-md-6 col-12 explanation d-flex justify-content-center justify-content-md-start"
+                >
+                  <div
+                    class="supporting-text d-flex flex-column align-items-center align-items-md-start"
+                  >
+                    <h3>3</h3>
+                    <p class="">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <p class="text-center text-md-start">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Autem sunt placeat, illo iusto deserunt reprehenderit
+                      minus aut recusandae asperiores expedita, nemo suscipit
+                      vel, consequuntur quos itaque tenetur laudantium voluptas
+                      nesciunt.
+                    </p>
+                  </div>
+                  <!-- end of righthand side supporting text-->
+                </div>
+                <!-- end of row 3 holding content-->
+              </div>
+              <!-- end row 3-->
+                <!-- end of row holding content-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sunny-info">
+        <div class="container">
+          <div class="row">
+            <div class="col mt-3">
+              <div class="title d-flex justify-content-center mb-2">
+                <h2>Sunny Info</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+              <div
+                class="sunny-info-photo d-flex flex-column align-items-center"
+              >
+              <div class="mt-5">
+                <img src="/src/family-solar.jpg" alt="photo" class="mb-5" />
+
+              </div>
+                
+                <p class="text-center">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+                  ullam doloremque deserunt itaque voluptates nisi quia ex
+                  corrupti adipisci sit cumque rem. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sunny-repeat-search">
+        <div class="container-fluid brandbackground">
+          <div class="row">
+            <div class="col mt-3">
+              <div class="title d-flex justify-content-center mb-2">
+                <h2>Search sunny</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid brandbackground">
+          <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+              <div
+                class="sunny-info-photo d-flex flex-column align-items-center"
+              >
+                <form
+                  class="postcode-form d-flex flex-column align-items-center"
+                >
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter your postcode"
+                      aria-label="Building postcode"
+                      aria-describedby="basic-addon2"
+                    />
+                    <span
+                      class="input-group-text brandcontrastbackground"
+                      id="basic-addon2"
+                      >Postcode</span
+                    >
+                  </div>
+
+                  <button type="submit" class="btn brandcontrastbackground">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer-->
+    <footer>
+      <section class="sunny-repeat-search">
+        <div class="container-fluid sunny-footer">
+          <div class="row">
+            <div class="col mt-3">
+              <div class="title d-flex justify-content-center mb-2">
+                <h2>Sunny</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid sunny-footer">
+          <div class="row">
+
+            <div class="col d-flex justify-content-center">
+              <div class="mb-5">
+              
+
+               <img class="footer-icons me-5"src="../src/facebook.svg" alt="facebook-logo"/>
+               <img class="footer-icons me-5"src="../src/tiktok.svg" alt="tiktok-logo"/>
+               <img class="footer-icons"src="../src/x-twitter.svg" alt="twitter"/>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
