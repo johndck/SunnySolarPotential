@@ -213,7 +213,6 @@ async function fetchSolarInfo2(lat, lon) {
     return;
 
     // show the no possible results display on the page
-
   }
   const taglineEL = document.querySelector("#tagline");
   const resultsEL = document.createElement("div");
@@ -279,3 +278,34 @@ const savePostcodeSearch = (ukPostCode) => {
     return;
   }
 };
+
+// Event listener for recent searches showing up on the diplay with their data
+document.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON" && e.target.closest(".previousSearches")) {
+    ukPostCode = e.target.textContent;
+    const checkResultsEL = document.querySelector(".results");
+    if (checkResultsEL) {
+      checkResultsEL.remove();
+    }
+
+    fetchLocation(ukPostCode);
+  }
+});
+
+// Creates a clear searches button - dynamically created
+
+let clearSearchBtn = document.createElement("button");
+clearSearchBtn.textContent = "Clear Search History";
+clearSearchBtn.classList.add("brandbtn");
+clearSearchBtn.setAttribute("type", "submit");
+document
+  .querySelector(".postcode-form")
+  .insertAdjacentElement("beforeend", clearSearchBtn);
+
+clearSearchBtn.addEventListener("click", () => {
+  // Clear the recent searches from localStorage
+  localStorage.removeItem("PostcodeSearch");
+
+  // Remove the recent searches container from the DOM
+  recentSearchEl.textContent = "";
+});
