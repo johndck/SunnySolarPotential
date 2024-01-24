@@ -1,0 +1,61 @@
+a {
+    color: black;
+    text-decoration: none;
+  }
+  /*  */
+  /* change image to one from claire */
+  .hero-section {
+    background: url('https://picsum.photos/seed/agwerq/1600/600') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+    position: relative;
+    overflow: hidden;
+    /* Add overflow property to prevent overlay from covering the input and button */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    /* Increase z-index to place the overlay behind the content */
+  }
+  
+  .hero-section .container {
+    position: relative;
+    /* Add relative positioning to the container */
+    z-index: 2;
+    /* Ensure the content is on top of the overlay */
+  }
+  
+  .hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .lead {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .desktop {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+  
+  .mobile {
+    display: none;
+    @media screen and (max-width: 800px) {
+      display: initial;
+    }
+  }

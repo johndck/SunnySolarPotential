@@ -29,7 +29,6 @@ const searchHistory = () => {
     // create the recent searches buttons
     // create the recent searches div to hold recent search buttons
 
-    // enlarged logo and styled search-history buttons
 
     let recentSearchEl = document.createElement("div");
     recentSearchEl.classList.add(
@@ -37,6 +36,7 @@ const searchHistory = () => {
       "flex-column",
       "align-items-center",
       "previousSearches",
+      // Added bootstrap classes
       "text-bg-warning",
       "rounded",
       "p-3",
@@ -48,7 +48,7 @@ const searchHistory = () => {
 
     // button holder
     let buttonHolderEL = document.createElement("div");
-    buttonHolderEL.classList.add("results-form", "text-center");
+    buttonHolderEL.classList.add("results-form", "text-center"); // Added bootstrap classes
 
     // loop through the saved search to create the buttons, then add them to the buttonHolder element
 
@@ -56,7 +56,7 @@ const searchHistory = () => {
       let historyButtonEL = document.createElement("button");
       historyButtonEL.textContent = checkHistory[i].postcode;
       historyButtonEL.setAttribute("data-custom", checkHistory[i].postcode);
-      historyButtonEL.classList.add("rounded", "btn", "bg-white", "mx-1")
+      historyButtonEL.classList.add("rounded", "btn", "bg-white", "mx-1") // Added bootstrap classes
       buttonHolderEL.append(historyButtonEL);
     }
 
