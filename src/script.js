@@ -29,21 +29,26 @@ const searchHistory = () => {
     // create the recent searches buttons
     // create the recent searches div to hold recent search buttons
 
+
     let recentSearchEl = document.createElement("div");
     recentSearchEl.classList.add(
-      "border",
-      "d-flex",
+      "d-inline-flex",
       "flex-column",
       "align-items-center",
-      "previousSearches"
+      "previousSearches",
+      // Added bootstrap classes
+      "text-bg-warning",
+      "rounded",
+      "p-3",
     );
+
     let recentSearchesTitle = document.createElement("h5");
     recentSearchesTitle.textContent = "Recent searches:";
     recentSearchEl.append(recentSearchesTitle);
 
     // button holder
     let buttonHolderEL = document.createElement("div");
-    buttonHolderEL.classList.add("border", "results-form");
+    buttonHolderEL.classList.add("results-form", "text-center"); // Added bootstrap classes
 
     // loop through the saved search to create the buttons, then add them to the buttonHolder element
 
@@ -51,6 +56,7 @@ const searchHistory = () => {
       let historyButtonEL = document.createElement("button");
       historyButtonEL.textContent = checkHistory[i].postcode;
       historyButtonEL.setAttribute("data-custom", checkHistory[i].postcode);
+      historyButtonEL.classList.add("rounded", "btn", "bg-white", "mx-1") // Added bootstrap classes
       buttonHolderEL.append(historyButtonEL);
     }
 
