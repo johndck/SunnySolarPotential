@@ -39,9 +39,10 @@ For any inquiries or collaboration opportunities, feel free to contact any of th
 - Click on the "Submit" button to fetch solar information.
 - View the results, including the estimated number of solar panels, available space, total yearly sunshine hours, and carbon offset.
 - Explore the search history for quick access to previously searched postcodes.
-Access our very own informative solar energy webpage [here] (URL link)*****
+Access our very own informative solar energy webpage:
+https://johndck.github.io/project1-solarpotential/
 
-![screenshot](<../Screenshot 2024-01-20 081831.png>)
+![screenshot](screenshot.png)
 
 ## Known Issues
 If you encounter issues fetching solar data, ensure your internet connection is stable.
