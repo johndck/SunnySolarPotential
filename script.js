@@ -7,6 +7,21 @@ let panelNumber;
 let yearlyEnergyDcKwh;
 let panelCapacity;
 let arrayAreaMeters;
+let isClicked = false;
+let previousScroll = 0;
+// hide the nav bar on scroll
+
+window.addEventListener("scroll", function () {
+  let currentScroll = window.scrollY;
+  let navBarEl = document.querySelector("#topNav");
+
+  if (currentScroll > 20 && currentScroll > previousScroll) {
+    navBarEl.style.display = "none";
+  } else if (currentScroll < previousScroll) {
+    navBarEl.style.display = "";
+  }
+  previousScroll = currentScroll;
+});
 
 // get the lat & long details
 
@@ -29,26 +44,21 @@ const searchHistory = () => {
     // create the recent searches buttons
     // create the recent searches div to hold recent search buttons
 
-
     let recentSearchEl = document.createElement("div");
     recentSearchEl.classList.add(
-      "d-inline-flex",
+      "d-flex",
       "flex-column",
-      "align-items-center",
+      "align-items-start",
       "previousSearches",
-      // Added bootstrap classes
-      "text-bg-warning",
-      "rounded",
-      "p-3",
+      "text-white"
     );
-
-    let recentSearchesTitle = document.createElement("h5");
+    let recentSearchesTitle = document.createElement("h7");
     recentSearchesTitle.textContent = "Recent searches:";
     recentSearchEl.append(recentSearchesTitle);
 
     // button holder
     let buttonHolderEL = document.createElement("div");
-    buttonHolderEL.classList.add("results-form", "text-center"); // Added bootstrap classes
+    buttonHolderEL.classList.add("results-form");
 
     // loop through the saved search to create the buttons, then add them to the buttonHolder element
 
@@ -56,7 +66,7 @@ const searchHistory = () => {
       let historyButtonEL = document.createElement("button");
       historyButtonEL.textContent = checkHistory[i].postcode;
       historyButtonEL.setAttribute("data-custom", checkHistory[i].postcode);
-      historyButtonEL.classList.add("rounded", "btn", "bg-white", "mx-1") // Added bootstrap classes
+      historyButtonEL.classList.add("results-btn");
       buttonHolderEL.append(historyButtonEL);
     }
 
@@ -66,14 +76,43 @@ const searchHistory = () => {
         resultsButtons.removeChild(resultsButtons.firstChild);
       }
 
+      // Add the title again
+      let recentSearchesTitle = document.createElement("h7");
+      recentSearchesTitle.textContent = "Recent searches:";
+      let clearSearchLink = document.createElement("a");
+      clearSearchLink.textContent = "Clear";
+      clearSearchLink.setAttribute("href", "#");
+      resultsButtons.append(recentSearchesTitle);
       resultsButtons.append(buttonHolderEL);
+      resultsButtons.append(clearSearchLink);
+
+      clearSearchLink.addEventListener("click", (evt) => {
+        // Clear the recent searches from localStorage
+        evt.preventDefault();
+        localStorage.removeItem("PostcodeSearch");
+        // Remove the recent searches container from the DOM
+        resultsButtons.remove();
+      });
       return;
     }
 
     recentSearchEl.append(buttonHolderEL);
-    // add the recent search after the search form:
+    let clearSearchLink = document.createElement("a");
+    clearSearchLink.textContent = "Clear";
+    //clearSearchLink.classList.add("brandbtn");
+    clearSearchLink.setAttribute("href", "#");
+    //clearSearchLink.classList.add("link-white");
+    recentSearchEl.append(clearSearchLink);
+    clearSearchLink.addEventListener("click", (evt) => {
+      // Clear the recent searches from localStorage
+      evt.preventDefault();
+      localStorage.removeItem("PostcodeSearch");
+      // Remove the recent searches container from the DOM
+      recentSearchEl.textContent = "";
+      recentSearchEl.remove();
+    });
     let searchFormEL = document.querySelector("#hero-content");
-    searchFormEL.after(recentSearchEl);
+    searchFormEL.appendChild(recentSearchEl);
   }
 };
 
@@ -90,6 +129,16 @@ const cleanPostcode = (ukPostCode) => {
 
 submitButton.addEventListener("click", (evt) => {
   evt.preventDefault();
+
+  submitButton.disabled = true;
+  setTimeout(() => {
+    submitButton.disabled = false;
+  }, 1000);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 
   ukPostCode = userPostcode.value.trim();
   ukPostCode = cleanPostcode(ukPostCode);
@@ -138,9 +187,29 @@ submitButton.addEventListener("click", (evt) => {
   fetchLocation(ukPostCode);
 });
 
+// add the event listener for when there are recent history buttons on the page.
+// having to use generic event listener as everything is dynamic.
+// so just listening out for click near target area
+
+document.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON" && e.target.closest(".previousSearches")) {
+    ukPostCode = e.target.textContent;
+    const checkResultsEL = document.querySelector(".results");
+    if (checkResultsEL) {
+      checkResultsEL.remove();
+    }
+    fetchLocation(ukPostCode);
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 const fetchLocation = (ukPostCode) => {
   fetch(
-    `https:maps.googleapis.com/maps/api/geocode/json?address=${ukPostCode}&key=AIzaSyBSz3w7EQnyHPXu2qDA4hz71uCVntYBug8`
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${ukPostCode}&key=AIzaSyBSz3w7EQnyHPXu2qDA4hz71uCVntYBug8`
   )
     .then((response) => {
       // Error handling
@@ -213,13 +282,12 @@ async function fetchSolarInfo2(lat, lon) {
     const resultsEL = document.createElement("div");
     resultsEL.classList.add("results");
     const resultsTitleEl = document.createElement("h3");
-    resultsTitleEl.textContent = `Unfortunately we don't currently have any data for your location.`;
+    resultsTitleEl.textContent = `Unfortunately we don't currently have any data for your location in this release.`;
     resultsEL.append(resultsTitleEl);
     taglineEL.after(resultsEL);
     return;
 
     // show the no possible results display on the page
-
   }
   const taglineEL = document.querySelector("#tagline");
   const resultsEL = document.createElement("div");
@@ -231,7 +299,7 @@ async function fetchSolarInfo2(lat, lon) {
   const maxSunshineHoursEl = document.createElement("p");
   maxSunshineHoursEl.textContent = `Total yearly sunshine hours: ${Math.round(
     maxSunshineHoursPerYear
-  )}`;
+  )} hrs`;
 
   const panelNumberEL = document.createElement("p");
   panelNumberEL.textContent = `Estimated panel potential: ${panelNumber}`;
