@@ -42,7 +42,7 @@ For any inquiries or collaboration opportunities, feel free to contact any of th
 Access our very own informative solar energy webpage:
 https://johndck.github.io/project1-solarpotential/
 
-![screenshot](screenshot.png)
+![screenshot](assets/screenshot.png)
 
 ## Known Issues
 If you encounter issues fetching solar data, ensure your internet connection is stable.
