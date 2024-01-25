@@ -79,19 +79,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  /* Added the Poppins font to all elements */
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Center the logo */
-#logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.previousSearches {
-    
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -10779,18 +10766,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-/* :root {
-  --bs-body-font-family: font-family: "Poppins", sans-serif;
-} */
+:root {
+  --bs-body-font-family: "Poppins", sans-serif;
+  --bs-link-color: white;
+}
 
 #nav {
-  /* background-color: rgb(255, 204, 0); */
+  background-color: rgb(255, 204, 0);
   border-radius: 1rem;
   padding: 1rem;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 .hero {
-  min-height: 75vh;
+  min-height: 70vh;
   height: auto;
 }
 
@@ -10798,30 +10788,35 @@ textarea.form-control-lg {
   margin-top: 11rem;
 }
 
-.postcode-form {
-  width: 25rem;
-  padding: 3rem;
+.results-form {
+  padding: 0rem;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.results-form {
-  width: 25rem;
-  padding: 1rem;
+.results-btn {
+  color: white;
+  font-size: 0.8rem;
+  margin-right: 0.2rem;
+  border: none;
+  background-color: rgb(149, 145, 83);
+  cursor: pointer;
 }
 
 .brandbtn {
   background: rgb(255, 204, 0);
-  padding: 0.3rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 0.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   border-radius: 0.5rem;
   font-family: "Poppins", sans-serif;
+  color: black;
 }
 
 .postcode-input {
-  width: 11rem;
+  width: 15rem;
   font-family: "Poppins", sans-serif;
   height: 2rem;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0.3rem;
   border: none;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
@@ -10831,18 +10826,8 @@ textarea.form-control-lg {
   border-color: rgb(255, 204, 0);
 }
 
-@media screen and (max-width: 576px) {
-  #nav {
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
-  }
-}
 .supporting-text {
-  width: 25rem;
-}
-
-.sunny-info-photo {
-  width: 25rem;
+  width: 20rem;
 }
 
 .sunny-footer {
@@ -10866,15 +10851,73 @@ textarea.form-control-lg {
 }
 
 .results {
-  width: 26rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  width: 24rem;
+  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 1rem;
   margin-bottom: 1rem;
+  outline: 2px solid rgb(217, 109, 0);
   border: 0.2rem solid rgb(255, 204, 0);
-  padding: 2.5rem;
-  box-shadow: 3px 3px 3px 0 rgb(255, 204, 0);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 
 .results-view {
   display: none;
+}
+
+.previousSearches {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  #checkPostcode {
+    margin-top: 2rem;
+    padding: 0.6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .results {
+    width: 22rem;
+  }
+  .postcode-input {
+    padding: 1.5rem;
+  }
+  .results-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .results-btn {
+    margin-right: 1rem;
+  }
+  .brandbtn {
+    outline-color: black;
+  }
+  .previousSearches {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    max-width: 20rem;
+  }
+}
+@media screen and (max-width: 459px) {
+  .results {
+    width: 17rem;
+  }
+  .postcode-input {
+    padding: 1.5rem;
+  }
+  .results-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .results-btn {
+    margin-right: 1rem;
+  }
+  .brandbtn {
+    outline-color: black;
+  }
+  .previousSearches {
+    max-width: 75%;
+  }
 }

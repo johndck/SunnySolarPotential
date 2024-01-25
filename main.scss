@@ -1,0 +1,193 @@
+// custom.scss
+// we can over-write the variables in here!
+
+$primary: gray;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// importing google fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bs-body-font-family: "Poppins", sans-serif;
+  --bs-link-color: white;
+}
+
+// We can put custom code in here .....
+
+#nav {
+  background-color: rgba(255, 204, 0, 1);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+//#navbarNav {
+//outline: 1px solid blue;
+//}
+
+.hero {
+  min-height: 70vh;
+  height: auto;
+}
+
+.postcode-search {
+  //outline: 1px solid white;
+  margin-top: 11rem;
+}
+
+.results-form {
+  padding: 0rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.results-btn {
+  color: white;
+  font-size: 0.8rem;
+  margin-right: 0.2rem;
+  border: none;
+  background-color: rgba(149, 145, 83, 1);
+  cursor: pointer;
+}
+
+.brandbtn {
+  background: rgba(255, 204, 0, 1);
+  padding: 0.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.postcode-input {
+  width: 15rem;
+  font-family: "Poppins", sans-serif;
+  height: 2rem;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.postcode-input:focus {
+  border-color: rgba(255, 204, 0, 1);
+}
+
+.supporting-text {
+  width: 20rem;
+}
+
+.sunny-footer {
+  background-color: rgba(217, 209, 199, 1);
+}
+
+.renewables {
+  width: 10rem;
+}
+
+.brandbackground {
+  background-color: rgba(255, 204, 0, 1);
+}
+
+// to create contrast colour buttons
+
+.brandcontrastbackground {
+  background-color: rgba(217, 209, 199, 1);
+}
+
+.footer-icons {
+  width: 2.2rem;
+}
+
+.results {
+  width: 24rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  outline: 2px solid rgba(217, 109, 0, 1);
+  border: 0.2rem solid rgba(255, 204, 0, 1);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+
+.results-view {
+  display: none;
+}
+
+.previousSearches {
+  //background-color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+// Here are the styles for mobile
+
+@media screen and (max-width: 576px) {
+  #checkPostcode {
+    margin-top: 2rem;
+    padding: 0.6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .results {
+    width: 22rem;
+  }
+
+  .postcode-input {
+    padding: 1.5rem;
+  }
+
+  .results-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .results-btn {
+    margin-right: 1rem;
+  }
+
+  .brandbtn {
+    outline-color: black;
+  }
+
+  .previousSearches {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    max-width: 20rem;
+  }
+}
+
+// for very thin screens
+
+@media screen and (max-width: 459px) {
+  .results {
+    width: 17rem;
+  }
+
+  .postcode-input {
+    padding: 1.5rem;
+  }
+
+  .results-form {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .results-btn {
+    margin-right: 1rem;
+  }
+
+  .brandbtn {
+    outline-color: black;
+  }
+
+  .previousSearches {
+    max-width: 75%;
+  }
+}
