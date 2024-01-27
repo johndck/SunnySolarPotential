@@ -40,7 +40,7 @@ For any inquiries or collaboration opportunities, feel free to contact any of th
 - View the results, including the estimated number of solar panels, available space, total yearly sunshine hours, and carbon offset.
 - Explore the search history for quick access to previously searched postcodes.
 Access our very own informative solar energy webpage:
-https://johndck.github.io/project1-solarpotential/
+https://johndck.github.io/SunnySolarPotential/
 
 ![screenshot](assets/screenshot.png)
 
