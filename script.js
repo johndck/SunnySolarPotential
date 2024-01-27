@@ -8,19 +8,15 @@ let yearlyEnergyDcKwh;
 let panelCapacity;
 let arrayAreaMeters;
 let isClicked = false;
-let previousScroll = 0;
 // hide the nav bar on scroll
 
 window.addEventListener("scroll", function () {
-  let currentScroll = window.scrollY;
   let navBarEl = document.querySelector("#topNav");
-
-  if (currentScroll > 20 && currentScroll > previousScroll) {
+  if (this.window.scrollY >= 50) {
     navBarEl.style.display = "none";
-  } else if (currentScroll < previousScroll) {
+  } else {
     navBarEl.style.display = "";
   }
-  previousScroll = currentScroll;
 });
 
 // get the lat & long details
